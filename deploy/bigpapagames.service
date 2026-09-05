@@ -1,0 +1,24 @@
+[Unit]
+Description=Big Papa Games application
+After=network.target
+
+[Service]
+User=bigpapagames
+Group=bigpapagames
+WorkingDirectory=/opt/bigpapagames
+EnvironmentFile=/etc/bigpapagames.env
+ExecStart=/usr/bin/python3 /opt/bigpapagames/app.py
+Restart=on-failure
+RestartSec=5
+StateDirectory=bigpapagames
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+MemoryMax=128M
+TasksMax=32
+
+[Install]
+WantedBy=multi-user.target
