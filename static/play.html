@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171c30">
+  <meta name="description" content="Play Papa Chop by Big Papa Games. Chop the tree, dodge branches, and beat your best.">
+  <title>Papa Chop · Big Papa Games</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css?v=3">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="/mascot.js?v=3" defer></script><script src="/game.js?v=4" defer></script>
+</head>
+<body>
+  <main class="arcade">
+    <header class="brandbar"><a href="/" aria-label="Big Papa Games home"><span class="brandmark">B<span>P</span></span><span>BIG PAPA<span class="brand-sub">GAMES</span></span></a><button id="sound" class="icon-button" aria-label="Mute sound" aria-pressed="true">♪ <span>ON</span></button></header>
+    <section class="game" aria-label="Papa Chop game">
+      <div class="game-heading"><div><span class="eyebrow">THE WOODS ARE CALLING</span><h1>PAPA CHOP<span>!</span></h1></div><button id="leaders" class="icon-button trophy" aria-label="Open leaderboard">🏆</button></div>
+      <div class="scoreboard"><div><span>SCORE</span><strong id="score">0</strong></div><div class="best"><span>YOUR BEST</span><strong id="best">0</strong></div></div>
+      <div class="power-row"><span id="power-badge" data-level="1">CLASSIC ×1</span><span id="power-hint">50 logs in 15s for GREEN ×2</span></div>
+      <div class="time-track" role="progressbar" aria-label="Time remaining" aria-valuemin="0" aria-valuemax="100" aria-valuenow="84"><div id="time-fill"></div></div>
+      <div class="scene">
+        <canvas id="forest" width="480" height="570" aria-label="Tree with branches to dodge. Use left and right buttons or arrow keys."></canvas>
+        <div class="level-tag" id="level">FRESH CUTS</div>
+        <div class="overlay" id="overlay">
+          <div class="start-panel" id="panel">
+            <span class="pill" id="panel-tag">ONE TREE. TWO BUTTONS.</span>
+            <h2 id="panel-title">Ready,<br>lumberjack?</h2>
+            <p id="panel-copy">Chop left. Chop right.<br>Stay clear of the branches.</p>
+            <div id="result" hidden><span id="result-score">0</span><small>LOGS CHOPPED</small></div>
+            <button id="start" class="primary">LET’S CHOP <span>→</span></button>
+            <p class="save-status" id="save-status" role="status">50 in 15s → ×2 · 350 → red ×3</p>
+          </div>
+        </div>
+        <div id="power-toast" role="status" aria-live="polite"></div>
+        <div id="flash" aria-hidden="true"></div>
+      </div>
+      <div class="controls"><button id="left" aria-label="Chop on the left"><span>←</span> CHOP LEFT</button><button id="right" aria-label="Chop on the right">CHOP RIGHT <span>→</span></button></div>
+      <p class="hint" id="hint">BONUS CHOPS STOP BEFORE DANGEROUS BRANCHES</p>
+    </section>
+    <footer><span class="live-dot"></span><span id="identity">Browser practice · Best saved on this device</span></footer>
+  </main>
+  <dialog id="leaderboard"><div class="dialog-heading"><div><span class="eyebrow">PAPA CHOP</span><h2 id="board-title">Top choppers</h2></div><button id="close-leaders" class="icon-button" aria-label="Close leaderboard">✕</button></div><div class="board-tabs" aria-label="Leaderboard view"><button id="tab-global" aria-pressed="true">Global</button><button id="tab-group" aria-pressed="false" hidden>This group</button><button id="tab-personal" aria-pressed="false">My bests</button></div><p class="board-sub" id="board-sub">All-time · Telegram players</p><ol id="ranks"></ol><p id="board-status" role="status"></p><button id="refresh-leaders" class="secondary">Refresh scores</button></dialog>
+</body>
+</html>
